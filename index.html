@@ -1,10 +1,122 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<title>Crystal Game</title>
+<title>Crystal Game</title>
+
+<link rel="stylesheet" href="assets/css/style.css">
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 </head>
 <body>
-	<h1>Hello there from the internet</h1>
+	<h1>Crystals Collector!</h1>
+  <ul class="info">
+    <li>You will be given a random target number at the start of the game.</li>
+    <br>
+    <li>There are four crystals below with random point values assigned to each one. By clicking on a crystal you will add that amount of points to your total score.</li>
+    <br>
+    <li>The value of each crystal will be hidden until you click on it.</li>
+    <br>
+    <li>You win the game by matching your total score to the randomly generated number!</li>
+  </ul>
+  
+  <div id="target">Your target score is: </div>
+  
+  <div class="gems" id="red"><img src="http://www.agta.org/gemstones/images/ruby.jpg" alt="ruby" width="100" height="100">
+  </div>
+  <div class="gems" id="blue"><img src="https://i.pinimg.com/originals/a2/4b/67/a24b675fe5fd93d4f6658cb55a75ebf3.jpg" alt="sapphire" width="100" height="100">
+  </div>
+  <div class="gems" id="yellow"><img src="https://i.pinimg.com/236x/f0/95/3d/f0953d9af1d6cbd5c56b07bc4858aa9b--sapphire-gemstone-gem-stones.jpg" alt="yellow" width="100" height="100">
+  </div>
+  <div class="gems" id="green"><img src="https://www.gempundit.com/media/catalog/product/g/p/gp25742-1.jpg" alt="emerald" width="100" height="100">
+  </div>
+  
+<br>
+   <div id="yourScore">Your total score is: 0</div>
+<br>
+  <div id="wins">Number of wins: 0 </div>
+  <div id="losses">Number of losses: 0 </div>
 
+<script>
+  var red;
+  var blue;
+  var yellow;
+  var green;
+  var yourScore =0;
+  var target = 0;
+  var wins = 0;
+  var losses = 0;
+  
+  function randomNumber(min, max){
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+  function reset(){
+    yourScore = 0;
+    $("#yourScore").html("Your total score is: " + yourScore);
+    target = randomNumber(25, 75);
+    $("#target").html("Your target score is: " + target);
+    red = randomNumber(3,13);
+    blue = randomNumber(3,13);
+    yellow = randomNumber(3,13);
+    green = randomNumber(3,13);
+  }
+  function outcome(){
+    if (yourScore===target){
+      alert("You Win!");
+      wins++;
+      $("#wins").html("Number of wins: " + wins);
+      reset();
+    }
+    else if (yourScore>target){
+      alert("You Lose!");
+      losses++;
+      $("#losses").html("Number of losses: " + losses);
+      reset();
+    }
+  }
+  var target = randomNumber(25,75);
+  $("#target").html("Your target score is: " + target);
+  var red = randomNumber(3,13);
+  var blue = randomNumber(3,13);
+  var yellow = randomNumber(3,13);
+  var green = randomNumber(3,13);
+  console.log(red);
+  console.log(blue);
+  console.log(yellow);
+  console.log(green);
+  $("#red").on("click", function(){
+    yourScore=red+yourScore;
+    console.log(yourScore);
+    console.log(red);
+    $("#yourScore").html("Your total score is: " + yourScore);
+    outcome();
+  });
+  $("#blue").on("click", function(){
+    yourScore=blue+yourScore;
+    console.log(yourScore);
+    console.log(blue);
+    $("#yourScore").html("Your total score is: " + yourScore);
+    outcome();
+  });
+  $("#yellow").on("click", function(){
+    yourScore=yellow+yourScore;
+    console.log(yourScore);
+    console.log(yellow);
+    $("#yourScore").html("Your total score is: " + yourScore);
+    outcome();
+  });
+  $("#green").on("click", function(){
+    yourScore=green+yourScore;
+    console.log(yourScore);
+    console.log(green);
+    $("#yourScore").html("Your total score is: " + yourScore);
+    outcome();
+  });
+    
+  
+</script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+.gems {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	border: 2px solid black;
+}	
+
+body {
+	text-align: center;
+	background-image: url("https://www.petradiamonds.com/wp-content/uploads/finsch-fs-1800x880.jpg");
+	color: #3366ff;
+	font-family: arial black;
+	text-shadow: 3px 3px black;
+}
+
+.info {
+	text-align: left;
+	font-family: arial black;
+	font-size: 20px;
+	color: silver;
+}
+
+h1 {
+	font-family: impact;
+	font-size: 60px;
+	color: #0099ff;
+}
+
+ul {
+	list-style-type: square;
+}
+
+#target {
+	text-align: center;
+	font-size: 40px;
+	font-style: bold;
+	color: red;
+	font-family: arial black;
+}
+
+#yourScore {
+	font-style: bold;
+	color: #ffff00;
+	font-size: 35px;
+}
+
+#wins #losses {
+	font-size: 30px;
+}
